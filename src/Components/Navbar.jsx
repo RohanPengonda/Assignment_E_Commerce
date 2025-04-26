@@ -30,11 +30,12 @@ const Navbar = ({ setSelectedCategory, cartCount, onCartClick }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow flex justify-between py-5 border border-gray-400 px-8">
-      {/* Shopi and Tabs */}
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow flex flex-wrap justify-between items-center py-5 border border-gray-400 px-4 sm:px-8">
+      {/* Logo and Tabs */}
       <div className="flex items-center gap-4">
+        {/* Hide Shopi Logo on small screens */}
         <button
-          className="font-semibold text-xl cursor-pointer"
+          className="font-semibold text-xl cursor-pointer hidden sm:block"
           onClick={() => {
             handleTabClick("All");
             navigate("/");
@@ -43,34 +44,39 @@ const Navbar = ({ setSelectedCategory, cartCount, onCartClick }) => {
           Shopi
         </button>
 
-        {tabs.map((tab) => {
-          const path = `/${tab.toLowerCase()}`;
-          return (
-            <button
-              key={tab}
-              onClick={() => {
-                handleTabClick(tab);
-                tab === "All" ? navigate("/") : navigate(path);
-              }}
-              className={`focus:outline-none ${
-                activeTab === tab
-                  ? "border-b-2 border-black"
-                  : "text-gray-900 hover:text-gray-700"
-              }`}
-            >
-              {tab}
-            </button>
-          );
-        })}
+        {/* Category Tabs (Always Visible) */}
+        <div className="flex gap-2 sm:gap-4">
+          {tabs.map((tab) => {
+            const path = `/${tab.toLowerCase()}`;
+            return (
+              <button
+                key={tab}
+                onClick={() => {
+                  handleTabClick(tab);
+                  tab === "All" ? navigate("/") : navigate(path);
+                }}
+                className={`focus:outline-none text-sm sm:text-base ${
+                  activeTab === tab
+                    ? "border-b-2 border-black"
+                    : "text-gray-900 hover:text-gray-700"
+                }`}
+              >
+                {tab}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* User Info and Cart */}
-      <div className="flex items-center gap-4 text-sm">
-        {/* if user is logged in then it will show email orders and cart and logout option  */}
+      <div className="flex items-center gap-3 sm:gap-4 text-sm mt-3 sm:mt-0">
+        {/* User logged in */}
         {user ? (
           <>
-            <span className="text-gray-600">{user.email}</span>
-            <Link to="/my-order">My Orders</Link>
+            <span className="hidden sm:inline text-gray-600">{user.email}</span>
+            <Link to="/my-order" className="hover:underline">
+              My Orders
+            </Link>
             <button
               className="text-gray-600 hover:text-black"
               onClick={handleLogout}
@@ -79,7 +85,7 @@ const Navbar = ({ setSelectedCategory, cartCount, onCartClick }) => {
             </button>
           </>
         ) : (
-          // otherwise it shows login and signup option
+          // User not logged in
           <>
             <button
               className="text-gray-600 hover:text-black"
@@ -96,8 +102,9 @@ const Navbar = ({ setSelectedCategory, cartCount, onCartClick }) => {
           </>
         )}
 
+        {/* Cart Icon */}
         <div className="relative cursor-pointer" onClick={onCartClick}>
-          <FaShoppingCart size={24} />
+          <FaShoppingCart size={22} />
           {cartCount > 0 && (
             <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
               {cartCount}

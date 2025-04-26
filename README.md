@@ -1,12 +1,36 @@
-# React + Vite
+E-Commerce (Clone) Website
+A responsive E-commerce web application built with React.js and integrated with Fake Store API from Platzi.
+It features dynamic product listing, shopping cart, checkout functionality, and user authentication.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+** Features: **
 
-Currently, two official plugins are available:
+1. Product Listing: Listed products fetched from a dynamic API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Shopping Cart: Add and remove items and automatic total calculation.
 
-## Expanding the ESLint configuration
+3. Checkout Page: Review your cart and proceed to checkout.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. Authentication: Simple login/logout functionality.
+
+5. Responsive Design: Optimized for mobile ,desktop and tablet screens.
+
+6. Fast UI: Smooth, seamless user experience with React and Tailwind CSS.
+
+** Technologies Used **
+
+1. React.js
+
+2. React Router
+
+3. Tailwind CSS
+
+4. Platzi Fake Store API
+
+To run this project
+
+npm run dev
+
+or
+Open this link
+
+https://assignment-e-commerce-three.vercel.app/
